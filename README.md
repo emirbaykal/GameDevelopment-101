@@ -6,7 +6,8 @@
     * Inheritance
     * Polymorphism
     * Abstraction
-      *  Should I use abstraction? Or virtual? 
+      *  Should I use abstraction? Or virtual?
+      *  Interface vs Abstract
   - SOLID Principles
     * Single Responsibility
     * Open Closed
