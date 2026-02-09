@@ -1,5 +1,6 @@
 # GameDevelopment-101 
-## I will add small pieces of work here for each heading. 02/09/2026
+## I will add small pieces of work here for each heading. 
+## Work in progress 02/09/2026
 ### Contents 
   - Object Oriented Programming Principles
     * [Encapsulation](Assets/GameDevelopment-101/OOP_Principles/Encapsulation)
