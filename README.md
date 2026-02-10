@@ -8,7 +8,7 @@
     * [Polymorphism](Assets/GameDevelopment-101/OOP_Principles/Polymorphism)
     * Abstraction
       *  [Should I use abstraction? Or virtual?](Assets/GameDevelopment-101/OOP_Principles/Abstraction/Abstract&Virtual)
-      *  Interface vs Abstract
+      *  [Interface vs Abstract](Assets/GameDevelopment-101/OOP_Principles/Abstraction/Interface&Abstract)
   - SOLID Principles
     * Single Responsibility
     * Open Closed
