@@ -48,12 +48,12 @@
   <ItemGroup>
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Pistol.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Weapon.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Humanoid.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Interfaces\IDamageable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Interfaces\ISwimmable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Mage.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Warrior.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstarct\Ship.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Humanoid.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Ship.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\ISwimmable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Mage.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Warrior.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Zombie.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Polymorphism\Vehicle.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\BaseEnemy.cs" />

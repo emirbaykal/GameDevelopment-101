@@ -1,7 +1,7 @@
 using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct.Interfaces;
 using UnityEngine;
 
-namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct
+namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract.BaseClasses
 {
     // Ships can take damage just like the “humanoid” class.
     // But here we need to ask the “Is-A” question.

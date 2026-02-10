@@ -1,7 +1,7 @@
 using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct.Interfaces;
 using UnityEngine;
 
-namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct
+namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract.BaseClasses
 {
     // Humanoid is a base class. Our enemies will be derived from this class.
     

@@ -1,6 +1,7 @@
 using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct.Interfaces;
+using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract.BaseClasses;
 
-namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct
+namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract
 {
     // Warrior is a humanoid. It can take damage. It also has the additional ability to swim. 
 

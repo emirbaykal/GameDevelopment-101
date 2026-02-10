@@ -1,6 +1,6 @@
-using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct.Interfaces;
+using GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract.BaseClasses;
 
-namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstarct
+namespace GameDevelopment_101.OOP_Principles.Abstraction.Interface_Abstract
 {
     // The Mage is a humanoid.
     // It can take damage.
