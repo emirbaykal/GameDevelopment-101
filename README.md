@@ -10,8 +10,8 @@
       *  [Should I use abstraction? Or virtual?](Assets/GameDevelopment-101/OOP_Principles/Abstraction/Abstract&Virtual)
       *  [Interface vs Abstract](Assets/GameDevelopment-101/OOP_Principles/Abstraction/Interface&Abstract)
   - SOLID Principles
-    * Single Responsibility
-    * Open Closed
+    * Single Responsibility Principle (SRP)
+    * Open Closed Principle
     * Liskov Substitution
     * Interface Segregation
     * Dependency Inversion
