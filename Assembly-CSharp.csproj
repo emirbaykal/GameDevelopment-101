@@ -59,6 +59,10 @@
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\BaseEnemy.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Encapsulation\PlayerStats.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Warrior.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\BadExample\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterMover.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\InputHandler.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity 6000.0.58f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
