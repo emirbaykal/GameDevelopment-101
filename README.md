@@ -17,7 +17,14 @@ In short, each class should perform a single task. In the example, I proceeded w
     - Ease of updating the code.
     - Reduced dependency in teamwork.
     - Easy debugging
-### Open Closed Principle
+### [Open Closed Principle](Assets/GameDevelopment-101/SOLID_Principles/OpenClose)
+
+Actually, this principle is similar to what I explained with polymorphism and abstraction. 
+
+It's a system where we can increase the number of enemies as we wish with minimal or even zero changes to the BaseClasses, as in the simple enemy example I gave.
+
+The important thing here is to think about and design our main functions and classes from the outset in a way that is **open to development but closed to change**.
+
 ### Liskov Substitution
 ### Interface Segregation
 ### Dependency Inversion
