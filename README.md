@@ -74,8 +74,61 @@ public class Enemy : MonoBehaviour, IAttackable, IMovable
 {
 }
 ```
+### [Dependency Inversion](Assets/GameDevelopment-101/SOLID_Principles/DependencyInversion)
 
-### Dependency Inversion
+The fundamental principle here is that **“High-level classes should not depend on lower-level classes. Both should depend on Abstract classes or Interfaces.”**
+
+#### What do I mean?
+
+I want to explain how not to do it by modifying the code examples I've created.
+
+```
+public class Soldier : MonoBehaviour {
+    private M4Rifle weapon; //Here the upper class is connected to the lower class
+
+    void Start() {
+        weapon = new M4_Rifle();
+    }
+
+    void Shoot() {
+        weapon.Fire();
+    }
+}
+```
+What we need to do is manage the “M4Rifle” and ‘Soldier’ classes with an “IWeapon” interface.
+
+Like this: 
+
+Weapon Interface :
+```
+public interface IWeapon
+{
+  void Fire();
+}
+```
+Soldier Class :
+```
+public class Soldier : MonoBehaviour
+    {
+        private IWeapon weapon;
+
+        public void SetWeapon(IWeapon newWeapon)
+        {
+            weapon = newWeapon;
+        }
+
+        private void Shoot()
+        {
+            weapon?.Fire();
+        }
+    }
+```
+NOTE:
+
+“M4Rifle” and ‘Soldier’ do not know each other. They only communicate through the “IWeapon” interface. 
+
+And when we want to change the weapon, or add new weapons, or make significant changes to the “M4Rifle” class, we won't need to make changes within the ‘Soldier’ class again. The system will work the same way. Like the [“Open/Close”](Assets/GameDevelopment-101/SOLID_Principles/OpenClose) principle. 
+
 
 ## Design Patterns
 ### Command
