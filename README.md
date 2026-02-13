@@ -25,7 +25,16 @@ It's a system where we can increase the number of enemies as we wish with minima
 
 The important thing here is to think about and design our main functions and classes from the outset in a way that is **open to development but closed to change**.
 
-### Liskov Substitution
+### [Liskov Substitution](Assets/GameDevelopment-101/SOLID_Principles/LiskovSubstitution)
+
+The reason we use this principle is to increase the code's readability and reliability. 
+
+When developing games, we know that many things can change. The method we use here minimizes the impact of dependencies, so when system changes are required, it doesn't complicate our work. 
+
+Without LSP, we might trigger unnecessary functions that could be overlooked. This leads to errors.
+
+The interface structure we use prevents this.
+
 ### Interface Segregation
 ### Dependency Inversion
 
