@@ -46,26 +46,32 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.58f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Pistol.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Weapon.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Humanoid.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Ship.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\ISwimmable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Mage.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Warrior.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\IMovable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\ISwimmable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Ship.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Soldier.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Turret.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Unit.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\BadExample\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\InputHandler.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Zombie.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Polymorphism\Vehicle.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Warrior.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\BaseEnemy.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Encapsulation\PlayerStats.cs" />
-    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Warrior.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Enemy.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Spider.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Zombie.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\BadExample\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Ship.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\ISwimmable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Zombie.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Spider.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Weapon.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Pistol.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Encapsulation\PlayerStats.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterMover.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\InputHandler.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Humanoid.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Enemy.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Mage.cs" />
+    <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Warrior.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity 6000.0.58f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
