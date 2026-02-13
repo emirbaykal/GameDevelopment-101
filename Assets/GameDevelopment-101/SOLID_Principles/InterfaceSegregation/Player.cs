@@ -5,6 +5,5 @@ namespace GameDevelopment_101.SOLID_Principles.InterfaceSegregation
 {
     public class Player : MonoBehaviour, IMovable, IAttackable
     {
-        
     }
 }

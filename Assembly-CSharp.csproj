@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Interfaces\IWeapon.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\M4Rifle.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Soldier.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Enemy.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Interfaces\ExampleInterfaces.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Player.cs" />
