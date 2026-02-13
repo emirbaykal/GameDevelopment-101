@@ -36,6 +36,45 @@ Without LSP, we might trigger unnecessary functions that could be overlooked. Th
 The interface structure we use prevents this.
 
 ### Interface Segregation
+
+At first, we might think of this principle as interface usage, but it actually differs from normal interface usage.
+
+When we look at it, Player, Enemy, and Villager are all characters. We could have created a single interface for them, as in the example below.
+
+Bad Example
+```
+public interface ICharacter {
+    void Move();
+    void Attack();
+    void CastMagic();
+    void Trade();
+}
+```
+### What happens if we define it like in the example above? Why shouldn't we do this? 
+
+For example, we have a peasant character that only has the trace feature; it cannot move or attack. When we use the above method, we cannot leave the Move and Attack functions empty for it.
+
+Instead, the following example would be cleaner and more understandable.
+
+```
+public interface IMovable { void Move(); }
+public interface IAttackable { void Attack(); }
+public interface IMagicUser { void CastMagic(); }
+public interface ITrader { void Trade(); }
+```
+As a result, our classes will appear as follows. 
+```
+public class Villager : MonoBehaviour, ITrader
+{
+}
+public class Player : MonoBehaviour, IMovable, IAttackable
+{
+}
+public class Enemy : MonoBehaviour, IAttackable, IMovable
+{
+}
+```
+
 ### Dependency Inversion
 
 ## Design Patterns
