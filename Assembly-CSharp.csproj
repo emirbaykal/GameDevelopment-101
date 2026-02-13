@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Enemy.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Interfaces\ExampleInterfaces.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Player.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Villager.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\IMovable.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\ISwimmable.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Ship.cs" />
