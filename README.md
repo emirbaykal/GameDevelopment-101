@@ -52,7 +52,7 @@ public interface ICharacter {
 ```
 ### What happens if we define it like in the example above? Why shouldn't we do this? 
 
-For example, we have a peasant character that only has the trace feature; it cannot move or attack. When we use the above method, we cannot leave the Move and Attack functions empty for it.
+For example, we have a peasant character that only has the Trade feature; it cannot move or attack. When we use the above method, we cannot leave the Move and Attack functions empty for it.
 
 Instead, the following example would be cleaner and more understandable.
 
