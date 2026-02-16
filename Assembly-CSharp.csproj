@@ -46,6 +46,12 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.58f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\Interface\IState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerMovement.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\IdleState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\JumpState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\WalkState.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Interfaces\IWeapon.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\M4Rifle.cs" />
