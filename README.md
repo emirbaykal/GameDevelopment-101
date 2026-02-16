@@ -35,7 +35,7 @@ Without LSP, we might trigger unnecessary functions that could be overlooked. Th
 
 The interface structure we use prevents this.
 
-### Interface Segregation
+### [Interface Segregation](Assets/GameDevelopment-101/SOLID_Principles/InterfaceSegregation)
 
 At first, we might think of this principle as interface usage, but it actually differs from normal interface usage.
 
