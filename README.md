@@ -131,12 +131,10 @@ And when we want to change the weapon, or add new weapons, or make significant c
 
 
 ## Design Patterns
+### State Machine
+### Observer
 ### Command
-### Composite
-### Decorator
 ### Model-View-Presenter
 ### Object Pool
-### Observer
-### Singleton
-### State Machine
 ### Strategy
+### Singleton
