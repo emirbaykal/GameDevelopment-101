@@ -50,6 +50,10 @@
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Commands\MoveCommand.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Interface\ICommand.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\GameManager.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryModel.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryPresenter.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryView.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\BadExample\Player.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\HealtUI.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\PlayerHealth.cs" />
