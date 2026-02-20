@@ -30,8 +30,6 @@ namespace GameDevelopment_101.Design_Patterns.StatePattern
             currentState.UpdateState(this);
         }
 
-
-
         public void ChangeState(IState newState)
         {
             if (newState != null)

@@ -46,6 +46,13 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.58f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\CommandInvoker.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Commands\MoveCommand.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Interface\ICommand.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\BadExample\Player.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\HealtUI.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\PlayerHealth.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\Interface\IState.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerController.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerMovement.cs" />
