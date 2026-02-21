@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Rage
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 0}
-  skillDuration: 0
+  skillDuration: 2
