@@ -46,56 +46,60 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.58f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\CommandInvoker.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Commands\MoveCommand.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Interface\ICommand.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\PlayerController.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\GameManager.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryModel.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryPresenter.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryView.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\BadExample\Player.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\HealtUI.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\PlayerHealth.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\Interface\IState.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerController.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerMovement.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\IdleState.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\JumpState.cs" />
-    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\WalkState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StrategyPattern\ScriptableObject\Scripts\Skills\Rage.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Interfaces\IWeapon.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\M4Rifle.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Soldier.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Enemy.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Interfaces\ExampleInterfaces.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Player.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Villager.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\IMovable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\ISwimmable.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Ship.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Soldier.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Turret.cs" />
-    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Unit.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\BadExample\PlayerController.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StrategyPattern\ScriptableObject\Scripts\SkillStrategy.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerMovement.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\M4Rifle.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Interfaces\ExampleInterfaces.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\InputHandler.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryModel.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Zombie.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Unit.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Polymorphism\Vehicle.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Soldier.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Warrior.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\IdleState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryPresenter.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\IMovable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\PlayerController.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\BaseEnemy.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Ship.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Ship.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\HealtUI.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterController.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\ISwimmable.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Zombie.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\PlayerHealth.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryView.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Enemy.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\Interface\IState.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Spider.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Interfaces\ISwimmable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\CommandInvoker.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Interfaces\IWeapon.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Commands\MoveCommand.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\DependencyInversion\Soldier.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Weapon.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Abstract&amp;Virtual\Pistol.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StrategyPattern\ScriptableObject\Scripts\Skills\Shield.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\Interface\ICommand.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\JumpState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Turret.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Encapsulation\PlayerStats.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\CharacterMover.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\BaseClasses\Humanoid.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\OpenClose\Enemy.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\GameManager.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Mage.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StrategyPattern\ScriptableObject\Scripts\Skills\Slash.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\CommandPattern\PlayerController.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Inheritance\Warrior.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObserverPattern\BadExample\Player.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Player.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\WalkState.cs" />
+    <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\InterfaceSegregation\Villager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity 6000.0.58f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -978,6 +982,8 @@
     <Reference Include="Unity.InputSystem">
       <HintPath>C:\Users\Emir Baykal\Documents\GitHub\GameDevelopment-101\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

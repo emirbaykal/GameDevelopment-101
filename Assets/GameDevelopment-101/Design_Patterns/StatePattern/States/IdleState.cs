@@ -20,7 +20,7 @@ namespace GameDevelopment_101.Design_Patterns.StatePattern.States
 
         public void ExitState(PlayerController player)
         {
-            Debug.logger.Log("Exiting IdleState");
+            Debug.Log("Exiting IdleState");
         }
     }
 }
