@@ -59,6 +59,8 @@
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Unit.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Polymorphism\Vehicle.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\LiskovSubstitution\Soldier.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\Singelton\AudioManager.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\Singelton\Player.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Warrior.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StatePattern\States\IdleState.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ModelViewPresenter\InventoryPresenter.cs" />
