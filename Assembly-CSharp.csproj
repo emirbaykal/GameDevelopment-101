@@ -46,6 +46,10 @@
     <Analyzer Include="C:\Program Files\Unity 6000.0.58f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObjectPooling\Gun.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObjectPooling\Interfaces\IPoolable.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObjectPooling\Item\Bullet.cs" />
+    <Compile Include="Assets\GameDevelopment-101\Design_Patterns\ObjectPooling\ObjectPooling.cs" />
     <Compile Include="Assets\GameDevelopment-101\Design_Patterns\StrategyPattern\ScriptableObject\Scripts\Skills\Rage.cs" />
     <Compile Include="Assets\GameDevelopment-101\OOP_Principles\Abstraction\Interface&amp;Abstract\Interfaces\IDamageable.cs" />
     <Compile Include="Assets\GameDevelopment-101\SOLID_Principles\SRP\BadExample\PlayerController.cs" />
@@ -986,6 +990,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\GameDevelopment-101\Design_Patterns\MultiObjectPooling\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
