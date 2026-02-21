@@ -131,10 +131,10 @@ And when we want to change the weapon, or add new weapons, or make significant c
 
 
 ## Design Patterns
-### State Machine
-### Observer
-### Command
-### Model-View-Presenter
-### Object Pool
-### Strategy
-### Singleton
+### [State Machine](Assets/GameDevelopment-101/Design_Patterns/StatePattern)
+### [Observer](Assets/GameDevelopment-101/Design_Patterns/ObserverPattern)
+### [Command](Assets/GameDevelopment-101/Design_Patterns/CommandPattern)
+### [Model-View-Presenter](Assets/GameDevelopment-101/Design_Patterns/ModelViewPresenter)
+### [Object Pool](Assets/GameDevelopment-101/Design_Patterns/ObjectPooling)
+### [Strategy](Assets/GameDevelopment-101/Design_Patterns/StrategyPattern)
+### [Singleton](Assets/GameDevelopment-101/Design_Patterns/Singelton)
