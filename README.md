@@ -133,6 +133,75 @@ And when we want to change the weapon, or add new weapons, or make significant c
 ## Design Patterns
 ### [State Machine](Assets/GameDevelopment-101/Design_Patterns/StatePattern)
 ### [Observer](Assets/GameDevelopment-101/Design_Patterns/ObserverPattern)
+
+The structure we call Observer is actually the use of Action events that we use in Unity. But I wonder how this works in the background.
+
+Yes, I define an action, but when I Invoke it, how do other classes know about it?
+
+Technically, an Action is an object that is derived from a special class called MulticastDelegate in the background.
+
+## What is happening in RAM? 
+
+  ### Action Is an Object and Keeps a List
+
+When you define something like
+public static event Action<int> OnHealthChanged;
+C# actually creates an Invocation List in the background. This list is like a guide that stores the memory addresses (pointers) of functions.
+
+  ### What Happens During the += (Subscribe) Operation?
+
+When you write OnHealthChanged += UpdateUI;:
+
+In the background, the Delegate.Combine method runs.
+The memory address of the UpdateUI function and the object it belongs to (target) are added to the list inside the Action object.
+
+Technical Detail: Delegates are immutable structures. This means when you use +=, the old list is not modified. Instead, a completely new list object is created with the old list plus the new function.
+
+  ### What Happens When Invoke() Is Called?
+
+  * When you write OnHealthChanged?.Invoke(10);, these steps happen:
+  * Null Check: With the ? operator, the system checks if the list is empty or not.
+  * Loop: In the background, a for or foreach loop starts over the Invocation List.
+  * Call One by One: Each function address in the list is visited in order. The processor jumps to that address, runs the function with the parameter (in our example, 10), and then returns.
+  * Synchronous Execution: This is very important; the Invoke operation is not asynchronous. This means the second function will not start until the first function finishes. If one of the subscribers does a heavy operation, the class that calls Invoke must wait until it finishes.
+
+
+PlayerHealth :
+
+    public class PlayerHealth : MonoBehaviour
+    {
+        public static event Action<int> OnHealthChanged;
+        private int health = 100;
+
+        public void TakeDamage(int amount)
+        {
+            health -= amount;
+            OnHealthChanged?.Invoke(health);
+        }
+    }
+
+We subscribe to the action we defined from inside HealthUI, and when it is invoked, the function we subscribed there is triggered.
+
+HealthUI:
+
+    public class HealtUI : MonoBehaviour
+    {
+        private void OnEnable()
+        {
+            PlayerHealth.OnHealthChanged += UpdateUI;
+        }
+
+        private void UpdateUI(int healthAmount)
+        {
+            Debug.Log("Current health: " + healthAmount);
+        }
+
+        private void OnDestroy()
+        {
+            PlayerHealth.OnHealthChanged -= UpdateUI;
+        }
+    }
+
 ### [Command](Assets/GameDevelopment-101/Design_Patterns/CommandPattern)
 
 Why Do We Use It?
