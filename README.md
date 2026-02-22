@@ -134,6 +134,101 @@ And when we want to change the weapon, or add new weapons, or make significant c
 ### [State Machine](Assets/GameDevelopment-101/Design_Patterns/StatePattern)
 ### [Observer](Assets/GameDevelopment-101/Design_Patterns/ObserverPattern)
 ### [Command](Assets/GameDevelopment-101/Design_Patterns/CommandPattern)
+
+Why Do We Use It?
+
+  * Undo / Redo: Since every action is an object, we can store them in a Stack and reverse them when needed.
+  * Action History (Logging): We can keep all the player’s actions in a list and later build a Replay system to watch them again.
+  * Extensibility: Adding a new command (for example a jump command) means writing a new class without breaking the existing code.
+  * Flexibility: It makes it very easy to change key bindings dynamically.
+
+In my example, I will use the undo system that is commonly used in mobile games.
+
+First, it is important to understand the Stack logic that we will use with the command type here. If you do not know it, I recommend researching it first.
+
+ICommand :
+
+    public interface ICommand
+    {
+        public void Execute();
+        public void Undo();
+    }
+
+The MoveCommand we use for the move action will be triggered when the Player creates it.
+
+    public class MoveCommand : ICommand
+    {
+        private Vector3 moveVector;
+        private Transform playerTransform;
+    
+        // Inside the SendMoveCommand function in the PlayerController, 
+        // we create a MoveCommand object and update its values.
+        public MoveCommand(Transform player, Vector3 moveVector)
+        {
+            playerTransform = player;
+            this.moveVector = moveVector;
+        }
+        
+        public void Execute()
+        {
+            playerTransform.position += moveVector;
+        }
+
+        public void Undo()
+        {
+            playerTransform.position -= moveVector;
+        }
+    }
+
+Our Invoker will be the class where we manage the Stack logic. Here, we add commands to the stack and also take the top item from the stack. This is the place where the stack logic is used.
+
+    public class CommandInvoker
+    {
+        private Stack<ICommand> history = new Stack<ICommand>();
+
+        public void ExecuteCommand(ICommand command)
+        {
+            command.Execute();
+            // We add to the top of the stack.
+            history.Push(command);
+        }
+
+        public void Undo()
+        {
+            if (history.Count > 0)
+            {
+                // We remove the item from the top of the stack.
+                ICommand lastCommand = history.Pop();
+                lastCommand.Undo();
+            }
+        }
+    }
+
+Inside the Player, we add the actions we do from the UI to the Stack. Later, when we want to use undo, we can do it easily.
+
+I will add the final look of the project as a GIF below.
+
+    public class PlayerController : MonoBehaviour
+    {
+        [SerializeField] private Transform playerTransform;
+        [SerializeField] private CommandInvoker commandInvoker;
+        private float stepSize = 1.0f;
+        
+        // Button action
+        public void MoveUp() => SendMoveCommand(Vector3.up);
+        public void MoveDown() => SendMoveCommand(Vector3.down);
+        public void MoveLeft() => SendMoveCommand(Vector3.left);
+        public void MoveRight() => SendMoveCommand(Vector3.right);
+
+        private void SendMoveCommand(Vector3 direction)
+        {
+            ICommand move = new MoveCommand(playerTransform, direction * stepSize);
+            commandInvoker.ExecuteCommand(move);
+        }
+    }
+    
+![Recording 2026-02-17 175127](https://github.com/user-attachments/assets/687b6110-23ae-40b5-8c0c-6ceaa21914c9)
+
 ### [Model-View-Presenter](Assets/GameDevelopment-101/Design_Patterns/ModelViewPresenter)
 
 MVP is an architectural pattern that clearly separates Data (Model), View, and Logic (Presenter) from each other.
