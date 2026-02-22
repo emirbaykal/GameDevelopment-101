@@ -132,6 +132,92 @@ And when we want to change the weapon, or add new weapons, or make significant c
 
 ## Design Patterns
 ### [State Machine](Assets/GameDevelopment-101/Design_Patterns/StatePattern)
+
+State Pattern is a design pattern that allows an object's behavior to change when its internal state changes. From a code perspective, it means replacing very large if-else or switch-case blocks with independent State classes, where each class manages its own logic.
+
+  ## Why Do We Use It?
+
+  * Preventing Spaghetti Code: It helps you avoid writing many checks like if (isGrounded && !isJumping && isDead) inside Update.
+  * Readability: Each state (for example AttackState, IdleState) lives in its own class. When there is a bug, you know exactly where to look.
+  * Extensibility: If you want to add a new ability to your character (for example Wall Running), you only add a new class without breaking the existing code.
+  * Clean Transitions: When moving from one state to another, you can manage what will happen (like triggering animations or playing sounds) from a central place.
+
+  ## How Can I Use?
+
+  We define the functions that every state must implement by using an interface.
+
+  Interface :
+  
+    public interface IState
+    {
+        public void EnterState(PlayerController player);
+        public void UpdateState(PlayerController player);
+        public void ExitState(PlayerController player);
+    }
+
+  I will continue with a character movement example. As an example, I defined a Jump state. We also need to define this for other states like Walk and Idle. In this example, I will only use Jump.
+
+  JumpState : 
+
+    public class JumpState : IState
+    {
+        public void EnterState(PlayerController player)
+        {
+            Debug.Log("Entering WalkState");
+        }
+
+        public void UpdateState(PlayerController player)
+        {
+            player.playerMovement.HandleJumping();
+            
+            if(player.IsWalking() && player.IsGrounded())
+                player.ChangeState(new WalkState());
+            else if(!player.IsWalking() && player.IsGrounded())
+                player.ChangeState(new IdleState());
+        }
+
+        public void ExitState(PlayerController player)
+        {
+            Debug.Log("Exiting WalkState");
+        }
+    }
+
+Inside PlayerController, we keep the functions where we change and update these states.
+
+Inside ChangeState, we exit the current state and switch to the new state. This way, we do not need to use switch-case or if-else inside Update.
+
+PlayerController :
+
+    public class PlayerController : MonoBehaviour
+    {
+        private IState currentState;
+        
+        //Components
+
+        public PlayerMovement playerMovement;
+        
+        private void Start()
+        {
+            playerMovement = GetComponent<PlayerMovement>();
+            
+            currentState = new IdleState();
+            currentState.EnterState(this);
+        }
+
+        private void Update()
+        {
+            currentState.UpdateState(this);
+        }
+
+        public void ChangeState(IState newState)
+        {
+            if (newState != null)
+                currentState.ExitState(this);
+            currentState = newState;
+            currentState?.EnterState(this);
+        }
+    }
+
 ### [Observer](Assets/GameDevelopment-101/Design_Patterns/ObserverPattern)
 
 The structure we call Observer is actually the use of Action events that we use in Unity. But I wonder how this works in the background.
