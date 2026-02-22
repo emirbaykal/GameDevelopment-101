@@ -135,6 +135,324 @@ And when we want to change the weapon, or add new weapons, or make significant c
 ### [Observer](Assets/GameDevelopment-101/Design_Patterns/ObserverPattern)
 ### [Command](Assets/GameDevelopment-101/Design_Patterns/CommandPattern)
 ### [Model-View-Presenter](Assets/GameDevelopment-101/Design_Patterns/ModelViewPresenter)
+
+MVP is an architectural pattern that clearly separates Data (Model), View, and Logic (Presenter) from each other.
+
+It is one way to avoid the spaghetti code we often see in games.
+
+The difference from the MVC pattern is that in MVP, we can use the View part with the Canvas. In Unity, we use the Canvas as a View.
+
+The image below will help you understand the MVP structure more clearly.
+
+<img width="1500" height="600" alt="MVP" src="https://github.com/user-attachments/assets/72515740-963b-4af9-b4fe-771c62d41a01" />
+
+## What is Presenter? 
+
+The Presenter works like a bridge between the Model and the View. It receives interactions from the View, updates the Model, and then shows the result on the View again.
+
+In our example, I built an Inventory System. In this game, when we click the button in the scene, we earn gold.
+
+InventoryPresenter :
+
+    public class InventoryPresenter
+    {
+        private InventoryModel _model;
+        private InventoryView _view;
+        
+        public InventoryPresenter(InventoryModel model, InventoryView view)
+        {
+            _model = model;
+            _view = view;
+
+            _view.OnAddGoldClicked += HandleAddGold;
+
+            RefreshView();
+        }
+
+        private void HandleAddGold()
+        {
+            _model.AddGold(10);
+            RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            _view.UpdateGoldDisplay(_model.Gold);
+        }
+    }
+
+Here, it is important that the parts work together. When we earn gold, we take the input from the View, add 10 gold to the Model, and then refresh the View again.
+
+The HandleAddGold function helps us understand and manage this process easily.
+
+You can review the InventoryView and InventoryModel classes below.
+
+InventoryModel : 
+
+    public class InventoryModel
+    {
+        public int Gold { get; set; }
+        
+        public InventoryModel(int initialGold)
+        {
+            Gold = initialGold;
+        }
+        
+        public void AddGold(int amount) => Gold += amount;
+
+        public bool RemoveGold(int amount)
+        {
+            if (Gold < amount) return false;
+            Gold -= amount;
+            return true;
+        }
+    }
+
+InventoryView :
+
+    public class InventoryView : MonoBehaviour
+    {
+        [SerializeField] private TextMeshProUGUI goldText;
+        [SerializeField] private Button addGoldButton;
+
+        public event Action OnAddGoldClicked;
+
+        private void Awake()
+        {
+            addGoldButton.onClick.AddListener(() => OnAddGoldClicked?.Invoke());
+        }
+        
+        public void UpdateGoldDisplay(int amount)
+        {
+            goldText.text = $"Gold: {amount}";
+        }
+    }
+
+Another important advantage of this method is that it makes teamwork easier in large teams. While you update the calculation logic inside the InventoryModel, your teammate can work inside the InventoryView at the same time.
+
+
 ### [Object Pool](Assets/GameDevelopment-101/Design_Patterns/ObjectPooling)
+
+Object Pool is one of the most well-known and commonly used patterns. But many times, people skip the question: why do we use it and what technical benefits it gives.
+
+We use Object Pool for optimization. But what exactly is optimized?
+
+## Why Object Pooling is an optimization?
+
+The Instantiate and Destroy operations we use in our game create unnecessary load in RAM.
+
+If we continue with the example I gave, every time we Instantiate a "Bullet", a new space is created in the HEAP area of RAM.
+
+When we Destroy it, that space stays as garbage and it cannot be cleaned immediately.
+
+When RAM becomes full, the Garbage Collector runs and cleans that space. This is one of the reasons for small lags in games.
+
+By using Object Pooling, instead of doing these operations again and again, we actually simulate them. We reuse existing objects instead of creating and destroying them each time.
+
+## How to Use Object Pooling
+
+NOTE :
+In this example, I will design it as if we need only one object. However, we can also do it by using a Dictionary and giving a key to control many different objects.
+
+        private List<GameObject> pool = new List<GameObject>();
+
+Now let’s look at how we get an object from the pool. I designed my system using GameObject, but we can also control it with a base class.
+
+In my design, I want to use the IPoolable interface. By giving the IPoolable interface to objects that can be pooled, we can manage them through the pool system.
+
+GetItemFromPool :
+
+        public GameObject GetItemFromPool(Vector3 spawnPosition, Quaternion spawnRotation)
+        {
+            for (int i = 0; i < pool.Count; i++)
+            {
+                if (!pool[i].activeInHierarchy)
+                {
+                    var item = pool[i];
+                    item.SetActive(true);
+                    // Update Transform
+                    item.transform.position = spawnPosition;
+                    item.transform.rotation = spawnRotation;
+                    
+                    IPoolable poolable = item.GetComponent<IPoolable>();
+                    
+                    poolable?.OnPulledToPool();
+
+                    return item;
+                }
+            }
+
+            GameObject newItem = Instantiate(itemPrefab);
+            newItem.SetActive(true);
+            pool.Add(newItem);
+            
+            return newItem;
+        }
+
+You can see this interface below. The interface structure works better with multiple objects when we use a Dictionary, but I designed it this way to also talk about multi-object pooling.
+
+    public interface IPoolable
+    {
+        public void OnPulledToPool();
+        public void OnReturnedToPool();
+    }
+
+  The Bullet class below will be the object in our pool. When it hits something, it goes back to the pool. The ReturnToPool function handles this.
+
+    public class Bullet : MonoBehaviour, IPoolable
+    {
+        
+        public void OnPulledToPool()
+        {
+            // Spawn
+        }
+
+        public void OnReturnedToPool()
+        {
+            // Destroy
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            ObjectPooling.instance.ReturnToPool(gameObject);
+        }
+    }
+
+Now I will show what I want to do in the ReturnToPool function. Actually, we just hide the object by using the SetActive function.
+
+Inside OnReturnToPool from the interface, or when it is used again inside OnPulledFromPool, we can do the actions we want.
+
+    public void ReturnToPool(GameObject item)
+        {
+            if (pool.Contains(item))
+            {
+                item.SetActive(false);
+                //Reset Transform
+                item.transform.position = Vector3.zero;
+                item.transform.rotation = Quaternion.identity;
+                
+                IPoolable poolable = item.GetComponent<IPoolable>();
+                
+                poolable?.OnReturnedToPool();
+            }
+            else
+                Debug.LogWarning("Pool not found this item!!!");
+        }
+        
 ### [Strategy](Assets/GameDevelopment-101/Design_Patterns/StrategyPattern)
+
+Strategy Pattern is a behavioral design pattern that lets us change an object's behavior at runtime. It works by putting the algorithm (how a task is done) into separate classes. This way, the main object does not depend on these details.
+
+## Why Do We Use It?
+
+I create a class called ObjectPooling. Inside this class, we will handle taking objects from the pool and returning them back.
+
+We keep the objects in the pool inside a list, and the operations work on this list. Depending on the needs of the game, we can also use a Queue instead of a List.
+
+  * Open/Closed Principle: We do not need to change existing code to add a new behavior. We only add a new strategy class.
+  * Clean Code: It helps us avoid very large if-else or switch-case blocks.
+  * Flexibility: We can change our character’s movement type or attack type during the game with only one line of code.
+  * Testability: Each strategy is independent, so it is easier to write unit tests.
+
+Using this method with ScriptableObject is one of the most common and clean approaches. I will explain how we can use it.
+
+    public abstract class SkillStrategy : UnityEngine.ScriptableObject
+    {
+        public GameObject skillPrefab;
+        public float skillDuration;
+        
+        public abstract void CastSkill();
+    }
+
+In the code above, we create a ScriptableObject class. In the Unity Editor, we will create the skills we want from this class. I am adding below how they look visually.
+
+<img width="417" height="115" alt="Rage" src="https://github.com/user-attachments/assets/d087d850-0715-4cdf-87bb-308a1960963a" />
+<img width="412" height="126" alt="Slash" src="https://github.com/user-attachments/assets/050e658b-4bcd-4166-a714-94dc02d9d3ed" />
+<img width="413" height="126" alt="Shield" src="https://github.com/user-attachments/assets/510152cc-c910-4a7d-9906-e4b8af4c8eb5" />
+
+For each one, we create classes that derive from SkillStrategy. We can use them by filling the values that come from the parent, like in the images above.
+
+Rage :
+
+    [CreateAssetMenu(fileName = "Skills", menuName = "ScriptableObjects/Skills/Rage")]
+    public class Rage : SkillStrategy
+    {
+        public override void CastSkill()
+        {
+            var rage = Instantiate(skillPrefab);
+            Destroy(rage, skillDuration);
+        }
+    }
+
+Shield :
+
+    [CreateAssetMenu(fileName = "Skills", menuName = "ScriptableObjects/Skills/Shield")]
+    public class Shield : SkillStrategy
+    {
+        public override void CastSkill()
+        {
+            var shield = Instantiate(skillPrefab);
+            Destroy(shield, skillDuration);
+        }
+    }
+
+Slash :
+
+    [CreateAssetMenu(fileName = "Skills", menuName = "ScriptableObjects/Skills/Slash")]
+    public class Slash : SkillStrategy
+    {
+        public override void CastSkill()
+        {
+            var slash = Instantiate(skillPrefab);
+            Destroy(slash, skillDuration);
+        }
+    }
+
+We do not need to define everything again. Inside CastSkill, the values for skillPrefab and skillDuration will come from the ScriptableObject that we filled in the Editor.
+
+This way, we avoid messy code. At the same time, we also follow the Open/Closed Principle.
+    
 ### [Singleton](Assets/GameDevelopment-101/Design_Patterns/Singelton)
+
+Singleton is one of the most common patterns in game development. Many people know about it, but some developers are careful when they want to use it. When it is used correctly, it has some advantages.
+
+First, I want to explain how Singleton works technically. A Singleton is created only once in a special place in RAM called the "Static Storage Area".
+
+First, let’s look at how we define a Singleton.
+
+It is defined like this:
+
+```
+public static ClassName Instance;
+```
+The static keyword here means that our variable is stored in the place we mentioned before, which is called the Static Storage Area.
+
+After that, we define it inside Awake like this:
+
+```
+public void Awake()
+{
+  if (Instance == null) Instance = this;
+  else Destroy(gameObject);
+}
+```
+
+Why are people afraid of Singleton, and why do many developers say we should not use it too much?
+Now we will talk about the reasons and also where we should use it.
+  * Tight Coupling: If you write GameManager.Instance.AddGold() inside the Player class, you cannot use the Player class anywhere without the GameManager anymore. It hides the dependencies.
+  * Race Condition: If more than one script tries to access the same Singleton inside Awake, you cannot know which one will run first. This creates a risk of a NullReferenceException.
+  * False Simplicity: Using a Singleton is like using a global variable. It looks easy, but it can make debugging very hard, because you cannot easily find which part of the project changed that data.
+
+## Where Should You Use It?
+You should not use Singleton for everything. You should use it only for system managers.
+ * Audio Manager: Sounds should be controlled from one central place.
+ * Save System: Saving data should go through a single system.
+ * Scene Manager: Scene transitions and loading screens.
+ * Game Manager: The general state of the game (Started / Finished / Pause).
+
+
+
+
+
+
+
